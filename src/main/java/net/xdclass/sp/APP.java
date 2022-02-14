@@ -15,8 +15,10 @@ public class APP {
 //        testInject(applicationContext);
 //        testInjectCollection(applicationContext);
 //        testExtends(applicationContext);
-        testInject2(applicationContext);
+//        testInject2(applicationContext);
+         Object temp = "dadsd";
 
+         System.out.println(temp);
 //         testInject2(applicationContext);
 //        ((ClassPathXmlApplicationContext) applicationContext).registerShutdownHook();
     }

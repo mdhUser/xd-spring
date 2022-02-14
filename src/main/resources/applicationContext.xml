@@ -41,9 +41,6 @@
         <property name="summary" value="课程概述 这个是summary"/>
     </bean>
 
-<!--    <bean id="test" class="net.xdclass.sp.domain.Test">-->
-<!--        -->
-<!--        -->
-<!--    </bean>-->
+
 
 </beans>
