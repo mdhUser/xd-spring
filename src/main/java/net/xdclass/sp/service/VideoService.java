@@ -8,4 +8,6 @@ public interface VideoService {
 
     Video findById(int id);
 
+    String fuck();
+
 }

@@ -1,7 +1,11 @@
 package net.xdclass.sp.service.impl;
 
+import net.xdclass.sp.dao.VideoDao;
 import net.xdclass.sp.domain.Video;
 import net.xdclass.sp.service.VideoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * @description:
@@ -9,7 +13,11 @@ import net.xdclass.sp.service.VideoService;
  * @email: maodihui@foxmail.com
  * @date: 2022/2/17 16:16
  */
+@Service("videoService")
 public class VideoServiceImpl implements VideoService {
+
+    @Autowired
+    private VideoDao videoDao;
 
     @Override
     public int save(Video video) {
@@ -19,7 +27,15 @@ public class VideoServiceImpl implements VideoService {
 
     @Override
     public Video findById(int id) {
-        System.out.println("根据"+id+"找视频" + id);
+        System.out.println("根据id"+id+"找视频" + id);
+        videoDao.daoTest();
         return new Video();
     }
+
+    @Override
+    public String fuck() {
+        System.out.println("切入方法");
+        return "shit";
+    }
+
 }

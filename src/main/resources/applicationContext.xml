@@ -1,3 +1,4 @@
+<!--
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -7,11 +8,11 @@
         http://www.springframework.org/schema/aop/spring-aop-4.2.xsd"
        xmlns:aop="http://www.springframework.org/schema/aop">
 
-    <bean id="video" class="net.xdclass.sp.domain.Video" scope="singleton" init-method="init" destroy-method="destroy">
-        <!--<bean id="video" class="net.xdclass.sp.domain.Video" scope="prototype">-->
+    <bean id="video" class="net.xdclass.sp.domain.Video" scope="singleton" destroy-method="destroy">
+        &lt;!&ndash;<bean id="video" class="net.xdclass.sp.domain.Video" scope="prototype">&ndash;&gt;
         <property name="id" value="9"/>
         <property name="title" value="spring 5.x课程"/>
-        <!--<constructor-arg name="title" value="面试课程第一季"></constructor-arg>-->
+        &lt;!&ndash;<constructor-arg name="title" value="面试课程第一季"></constructor-arg>&ndash;&gt;
         <property name="chapterList">
             <list>
                 <value>第一章Springboot</value>
@@ -28,31 +29,32 @@
         </property>
     </bean>
 
-    <!-- 观察BeanPostProcessor  -->
-    <!--    <bean class="net.xdclass.sp.processor.CustomBeanPostProcessor"/>
-        <bean class="net.xdclass.sp.processor.CustomBeanPostProcessor2"/>-->
+    &lt;!&ndash; 观察BeanPostProcessor  &ndash;&gt;
+    &lt;!&ndash;    <bean class="net.xdclass.sp.processor.CustomBeanPostProcessor"/>
+        <bean class="net.xdclass.sp.processor.CustomBeanPostProcessor2"/>&ndash;&gt;
 
 
-    <bean id="videoOrder" class="net.xdclass.sp.domain.VideoOrder" scope="singleton" autowire="constructor">
+    <bean id="videoOrder" class="net.xdclass.sp.domain.VideoOrder" scope="singleton" autowire="byName">
         <property name="id" value="8"/>
         <property name="outTradeNo" value="asd415451asd"/>
-        <!--<property name="video" ref="video"/>-->
+        &lt;!&ndash;<property name="video" ref="video"/>&ndash;&gt;
     </bean>
-    <!--bean继承-->
-    <!--<bean id="video2" class="net.xdclass.sp.domain.Video2" scope="singleton" parent="video">-->
+    &lt;!&ndash;bean继承&ndash;&gt;
+    &lt;!&ndash;<bean id="video2" class="net.xdclass.sp.domain.Video2" scope="singleton" parent="video">&ndash;&gt;
     <bean id="video2" class="net.xdclass.sp.domain.Video2" scope="singleton">
         <property name="summary" value="课程概述 这个是summary"/>
     </bean>
 
     <bean id="timeHandler" class="net.xdclass.sp.aop.TimeHandler"/>
     <bean id="videoService" class="net.xdclass.sp.service.impl.VideoServiceImpl"/>
-
+    &lt;!&ndash; aop配置&ndash;&gt;
     <aop:config>
-
+        &lt;!&ndash; 切入点表达式&ndash;&gt;
         <aop:aspect id="timeAspect" ref="timeHandler">
             <aop:pointcut id="allMethodLogPointCut"
                           expression="execution(* net.xdclass.sp.service.VideoService.*(..))"/>
 
+            &lt;!&ndash;    配置前后通知        &ndash;&gt;
             <aop:before method="printBefore" pointcut-ref="allMethodLogPointCut"/>
             <aop:after method="printAfter" pointcut-ref="allMethodLogPointCut"/>
         </aop:aspect>
@@ -60,4 +62,4 @@
     </aop:config>
 
 
-</beans>
+</beans>-->

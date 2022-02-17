@@ -37,4 +37,12 @@ public class VideoOrder {
     public void setVideo(Video video) {
         this.video = video;
     }
+
+    public void init(){
+        System.out.println("videoOrder init方法被调用");
+    }
+
+    public void destroy(){
+        System.out.println("videoOrder destroy方法被调用");
+    }
 }

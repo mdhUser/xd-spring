@@ -1,10 +1,14 @@
 package net.xdclass.sp.domain;
 
 
-import java.sql.Timestamp;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 import java.util.Map;
 
+@Component
+@Scope("prototype")
 public class Video {
 
     private long id;
@@ -33,6 +37,7 @@ public class Video {
     public void init(){
         System.out.println("video类 init 方法调用");
     }
+
     public void destroy(){
         System.out.println("video destroy 方法调用");
     }

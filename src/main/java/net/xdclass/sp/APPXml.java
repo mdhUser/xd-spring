@@ -1,12 +1,12 @@
 package net.xdclass.sp;
 
 import net.xdclass.sp.domain.Video;
-import net.xdclass.sp.domain.Video2;
 import net.xdclass.sp.domain.VideoOrder;
+import net.xdclass.sp.service.VideoService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class APP {
+public class APPXml {
 
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -16,11 +16,11 @@ public class APP {
 //        testInjectCollection(applicationContext);
 //        testExtends(applicationContext);
 //        testInject2(applicationContext);
-         Object temp = "dadsd";
-
-         System.out.println(temp);
 //         testInject2(applicationContext);
 //        ((ClassPathXmlApplicationContext) applicationContext).registerShutdownHook();
+
+        testAop(applicationContext);
+
     }
 
     //依赖注入测试
@@ -36,15 +36,6 @@ public class APP {
         System.out.println(video.getVideoMap().values());
     }
 
-    //bean继承依赖测试
-//    private static void testExtends(ApplicationContext context) {
-//        Video2 video2 = (Video2) context.getBean("video2");
-//        System.out.println(video2.getSummary());
-//        System.out.println(video2.getTitle());
-//        System.out.println(video2.getId());
-//        System.out.println(video2.getVideoMap());
-//        System.out.println(video2.getChapterList());
-//    }
 
     //作用域测试
     private static void testScope(ApplicationContext context) {
@@ -62,6 +53,11 @@ public class APP {
     private static void testInject2(ApplicationContext context) {
         VideoOrder videoOrder = (VideoOrder) context.getBean("videoOrder");
         System.out.println(videoOrder.getVideo().getTitle());
+    }
+
+    private static void testAop(ApplicationContext context) {
+        VideoService videoService = (VideoService) context.getBean("videoService");
+        System.out.println( videoService.fuck());
     }
 
 }
