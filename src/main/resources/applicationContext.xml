@@ -48,7 +48,7 @@
     <bean id="timeHandler" class="net.xdclass.sp.aop.TimeHandler"/>
     <bean id="videoService" class="net.xdclass.sp.service.impl.VideoServiceImpl"/>
     &lt;!&ndash; aop配置&ndash;&gt;
-    <aop:config>
+    <aop:config.properties>
         &lt;!&ndash; 切入点表达式&ndash;&gt;
         <aop:aspect id="timeAspect" ref="timeHandler">
             <aop:pointcut id="allMethodLogPointCut"
@@ -59,7 +59,7 @@
             <aop:after method="printAfter" pointcut-ref="allMethodLogPointCut"/>
         </aop:aspect>
 
-    </aop:config>
+    </aop:config.properties>
 
 
 </beans>-->

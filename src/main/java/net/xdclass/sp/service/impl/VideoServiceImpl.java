@@ -1,5 +1,6 @@
 package net.xdclass.sp.service.impl;
 
+import net.xdclass.sp.config.CustomConfig;
 import net.xdclass.sp.dao.VideoDao;
 import net.xdclass.sp.domain.Video;
 import net.xdclass.sp.service.VideoService;
@@ -18,6 +19,8 @@ public class VideoServiceImpl implements VideoService {
 
     @Autowired
     private VideoDao videoDao;
+    @Autowired
+    private CustomConfig config;
 
     @Override
     public int save(Video video) {
@@ -29,6 +32,8 @@ public class VideoServiceImpl implements VideoService {
     public Video findById(int id) {
         System.out.println("根据id"+id+"找视频" + id);
         videoDao.daoTest();
+        config.getHost();
+        config.getPort();
         return new Video();
     }
 

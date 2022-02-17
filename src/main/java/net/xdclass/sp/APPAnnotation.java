@@ -23,14 +23,13 @@ public class APPAnnotation {
         //里面完成初始化操作，核心方法
         context.refresh();
 
+//        VideoOrder videoOrder = (VideoOrder) context.getBean("videoOrder");
+//        VideoOrder videoOrder2 = (VideoOrder) context.getBean("videoOrder");
+//        System.out.println(videoOrder2==videoOrder);
 
-        VideoOrder videoOrder = (VideoOrder) context.getBean("videoOrder");
-        VideoOrder videoOrder2 = (VideoOrder) context.getBean("videoOrder");
-        System.out.println(videoOrder2==videoOrder);
 
-
-//        VideoService videoService =(VideoService) context.getBean("videoService");
-//        videoService.findById(4);
+        VideoService videoService =(VideoService) context.getBean("videoService");
+        videoService.findById(4);
 //        Video  video =(Video) context.getBean("video");
 //        video.init();
 
