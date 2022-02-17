@@ -2,7 +2,10 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd">
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.2.xsd"
+       xmlns:aop="http://www.springframework.org/schema/aop">
 
     <bean id="video" class="net.xdclass.sp.domain.Video" scope="singleton" init-method="init" destroy-method="destroy">
         <!--<bean id="video" class="net.xdclass.sp.domain.Video" scope="prototype">-->
@@ -41,6 +44,20 @@
         <property name="summary" value="课程概述 这个是summary"/>
     </bean>
 
+    <bean id="timeHandler" class="net.xdclass.sp.aop.TimeHandler"/>
+    <bean id="videoService" class="net.xdclass.sp.service.impl.VideoServiceImpl"/>
+
+    <aop:config>
+
+        <aop:aspect id="timeAspect" ref="timeHandler">
+            <aop:pointcut id="allMethodLogPointCut"
+                          expression="execution(* net.xdclass.sp.service.VideoService.*(..))"/>
+
+            <aop:before method="printBefore" pointcut-ref="allMethodLogPointCut"/>
+            <aop:after method="printAfter" pointcut-ref="allMethodLogPointCut"/>
+        </aop:aspect>
+
+    </aop:config>
 
 
 </beans>

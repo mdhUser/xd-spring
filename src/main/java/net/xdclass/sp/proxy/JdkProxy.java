@@ -18,7 +18,8 @@ public class JdkProxy implements InvocationHandler {
     public Object newProxyInstance(Object targetObject) {
         this.targetObject = targetObject;
         //绑定关系，和哪个具体实现类关联
-        return Proxy.newProxyInstance(targetObject.getClass().getClassLoader(), targetObject.getClass().getInterfaces(), this);
+        return Proxy.newProxyInstance
+                (targetObject.getClass().getClassLoader(), targetObject.getClass().getInterfaces(), this);
     }
 
     @Override
@@ -26,9 +27,9 @@ public class JdkProxy implements InvocationHandler {
 
         Object result = null;
         try {
-            System.out.println("通过JDK动态代理"+method.getName()+"打印日志 begin");
+            System.out.println("通过JDK动态代理" + method.getName() + "打印日志 begin");
             result = method.invoke(targetObject, args);
-            System.out.println("通过JDK动态代理"+method.getName()+"打印日志 end");
+            System.out.println("通过JDK动态代理" + method.getName() + "打印日志 end");
 
         } catch (IllegalAccessException e) {
             e.printStackTrace();

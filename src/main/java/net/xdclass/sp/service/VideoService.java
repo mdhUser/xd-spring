@@ -1,5 +1,11 @@
 package net.xdclass.sp.service;
 
-public class VideoService {
+import net.xdclass.sp.domain.Video;
+
+public interface VideoService {
+
+    int save(Video video);
+
+    Video findById(int id);
 
 }
