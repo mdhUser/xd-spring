@@ -1,11 +1,10 @@
 package net.xdclass.sp.service.impl;
 
 import net.xdclass.sp.config.CustomConfig;
-import net.xdclass.sp.dao.VideoDao;
 import net.xdclass.sp.domain.Video;
+import net.xdclass.sp.mapper.VideoMapper;
 import net.xdclass.sp.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,7 +17,7 @@ import org.springframework.stereotype.Service;
 public class VideoServiceImpl implements VideoService {
 
     @Autowired
-    private VideoDao videoDao;
+    private VideoMapper videoDao;
     @Autowired
     private CustomConfig config;
 
@@ -31,9 +30,6 @@ public class VideoServiceImpl implements VideoService {
     @Override
     public Video findById(int id) {
         System.out.println("根据id=" + id + "找视频" + id);
-        videoDao.daoTest();
-        System.out.println(config.getHost());
-        System.out.println(config.getPort());
         return new Video();
     }
 

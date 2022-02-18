@@ -1,5 +1,6 @@
 package net.xdclass.sp;
 
+import net.xdclass.sp.aop.AnnotationConfig;
 import net.xdclass.sp.domain.Video;
 import net.xdclass.sp.domain.VideoOrder;
 import net.xdclass.sp.service.VideoService;
@@ -16,22 +17,17 @@ public class APPAnnotation {
     public static void main(String[] args) {
 
 
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AnnotationConfig.class);
 
-        //扫描指定包，包括子包
-        context.scan("net.xdclass.sp");
-        //里面完成初始化操作，核心方法
-        context.refresh();
-
-//        VideoOrder videoOrder = (VideoOrder) context.getBean("videoOrder");
-//        VideoOrder videoOrder2 = (VideoOrder) context.getBean("videoOrder");
-//        System.out.println(videoOrder2==videoOrder);
+//        扫描指定包，包括子包
+//        context.scan("net.xdclass.sp");
+//        里面完成初始化操作，核心方法
+//        context.refresh();
 
 
-        VideoService videoService =(VideoService) context.getBean("videoService");
+        VideoService videoService = (VideoService) context.getBean("videoService");
         videoService.findById(4);
-//        Video  video =(Video) context.getBean("video");
-//        video.init();
+
 
     }
 
