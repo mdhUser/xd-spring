@@ -30,10 +30,10 @@ public class VideoServiceImpl implements VideoService {
 
     @Override
     public Video findById(int id) {
-        System.out.println("根据id"+id+"找视频" + id);
+        System.out.println("根据id=" + id + "找视频" + id);
         videoDao.daoTest();
-        config.getHost();
-        config.getPort();
+        System.out.println(config.getHost());
+        System.out.println(config.getPort());
         return new Video();
     }
 

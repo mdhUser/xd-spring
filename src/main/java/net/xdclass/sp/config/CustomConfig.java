@@ -11,7 +11,7 @@ import org.springframework.context.annotation.PropertySource;
  * @date: 2022/2/17 23:01
  */
 @Configuration
-@PropertySource(value = {"classpath:config.properties"})
+@PropertySource(value = {"classpath:config1.properties"})
 public class CustomConfig {
 
     @Value("${server.host}")
@@ -24,16 +24,16 @@ public class CustomConfig {
         return port;
     }
 
-    public void setPort(int port) {
-        this.port = port;
-    }
+//    public void setPort(int port) {
+//        this.port = port;
+//    }
 
     public String getHost() {
         return host;
     }
 
-    public void setHost(String host) {
-        this.host = host;
-    }
+//    public void setHost(String host) {
+//        this.host = host;
+//    }
 }
 
