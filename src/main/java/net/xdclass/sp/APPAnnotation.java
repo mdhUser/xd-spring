@@ -1,8 +1,6 @@
 package net.xdclass.sp;
 
 import net.xdclass.sp.aop.AnnotationConfig;
-import net.xdclass.sp.domain.Video;
-import net.xdclass.sp.domain.VideoOrder;
 import net.xdclass.sp.service.VideoService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
