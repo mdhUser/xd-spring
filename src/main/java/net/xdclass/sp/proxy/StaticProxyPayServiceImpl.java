@@ -30,4 +30,5 @@ public class StaticProxyPayServiceImpl implements PayService {
         System.out.println("StaticProxyPayServiceImpl save end");
         return id;
     }
+
 }

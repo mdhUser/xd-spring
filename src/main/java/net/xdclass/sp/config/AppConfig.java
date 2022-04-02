@@ -17,7 +17,9 @@ public class AppConfig {
     @Bean(name="videoOrder",initMethod = "init",destroyMethod = "destroy")
     @Scope("singleton")
     public VideoOrder getVideoOrder(){
-        return new VideoOrder();
+         VideoOrder videoOrder =new VideoOrder();
+         videoOrder.setOutTradeNo("dalkhdsjk");
+        return videoOrder;
     }
 
 

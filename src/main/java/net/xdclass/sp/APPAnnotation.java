@@ -1,6 +1,7 @@
 package net.xdclass.sp;
 
 import net.xdclass.sp.aop.AnnotationConfig;
+import net.xdclass.sp.domain.VideoOrder;
 import net.xdclass.sp.service.VideoService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -24,7 +25,10 @@ public class APPAnnotation {
 
 
         VideoService videoService = (VideoService) context.getBean("videoService");
-        videoService.findById(4);
+        System.out.println(videoService.findById(4));
+
+        VideoOrder videoOrder = (VideoOrder) context.getBean("videoOrder");
+        System.out.println(videoOrder);
 
 
     }

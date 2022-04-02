@@ -45,4 +45,13 @@ public class VideoOrder {
     public void destroy(){
         System.out.println("videoOrder destroy方法被调用");
     }
+
+    @Override
+    public String toString() {
+        return "VideoOrder{" +
+                "id=" + id +
+                ", outTradeNo='" + outTradeNo + '\'' +
+                ", video=" + video +
+                '}';
+    }
 }
